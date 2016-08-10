@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/home/arielo/IdeaProjects/PaloTextAnalyzer/src/main/resources/treeTagger/bin
+CMD=/home/arielo/IdeaProjects/PaloTextAnalyzer/src/main/resources/treeTagger/cmd
+LIB=/home/arielo/IdeaProjects/PaloTextAnalyzer/src/main/resources/treeTagger/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TAGGER=${BIN}/tree-tagger
+TOKENIZER=${CMD}/utf8-tokenize.perl
+PARFILE=${LIB}/slovak-utf8.par
+
+$TOKENIZER $* |
+$TAGGER $OPTIONS $PARFILE
